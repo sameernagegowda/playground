@@ -1,0 +1,43 @@
+<div fxFill fxLayoutAlign="center center">
+    <form fxLayout="column" [formGroup]="signupForm" fxLayoutGap="20Px">
+        <div fxLayout="row" fxLayoutGap="10Px">
+            <div>
+                <span>Name</span>
+            </div>
+            <div>
+                <input input type="email" matInput [formControl]="nameControl">
+                <div style="color: red;" *ngIf="nameControl && nameControl.invalid">
+                    Please enter valid name.
+                </div>
+            </div>
+        </div>
+        <div fxLayout="row" fxLayoutGap="10Px">
+            <div>
+                <span>Email</span>
+            </div>
+            <div>
+                <input input type="email" matInput [formControl]="emailControl">
+                <div style="color: red;" *ngIf="emailControl && emailControl.invalid">
+                    Please enter valid email id.
+                </div>
+            </div>
+        </div>
+        <div fxLayout="row" fxLayoutGap="10Px">
+            <div>
+                <span>Password</span>
+            </div>
+            <div>
+                <input input type="password" matInput [formControl]="passwordControl">
+                <div style="color: red;" *ngIf="passwordControl && passwordControl.invalid">
+                    Please enter valid password.
+                </div>
+            </div>
+        </div>
+        <div>
+            <button (click)="doSignup()">SIGNUP</button>
+        </div>
+        <div *ngIf="message" style="background-color: yellow;">
+            {{message}}
+        </div>
+    </form>
+</div>
