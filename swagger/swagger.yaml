@@ -20,6 +20,7 @@ paths:
     post:
       summary: "Creates the user"
       description: "Creates the user"
+      operationId: "createUser"
       consumes:
       - "application/json"
       produces:
@@ -38,6 +39,7 @@ paths:
     post:
       summary: "Login"
       description: "Login"
+      operationId: "login"
       produces:
       - "application/json"
       parameters:
@@ -54,10 +56,13 @@ paths:
           description: OK
           schema:
             $ref: "#/definitions/User"
+        404:
+          description: FAIL
   /stock:
     get:
       summary: "Get all stocks"
       description: "Get all stocks"
+      operationId: "getAllStocks"
       responses:
         200:
           description: OK
