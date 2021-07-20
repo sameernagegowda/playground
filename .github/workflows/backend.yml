@@ -6,8 +6,10 @@ name: Stock Browser Backend Service
 on:
   push:
     branches: [ master ]
+    paths: [backend/**]
   pull_request:
     branches: [ master ]
+    paths: [backend/**]
 
 jobs:
   build:
