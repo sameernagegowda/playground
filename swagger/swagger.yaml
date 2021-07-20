@@ -1,0 +1,110 @@
+swagger: '2.0'
+info:
+  version: "0.0.1"
+  title: "Stock Browser"
+  description: "Stock Browser Application"
+  termsOfService: "terms"
+  contact:
+    name: "Sameer Nage Gowda C V"
+    url: "http://bhscloudtech.com"
+    email: "master.bhscloudtech@gmail.com"
+  license:
+    name: MIT
+    url: http://opensource.org/licenses/MIT
+basePath: "/V1/"
+schemes: 
+  - "http"
+  - "https"
+paths:
+  /user:
+    post:
+      summary: "Creates the user"
+      description: "Creates the user"
+      consumes:
+      - "application/json"
+      produces:
+      - "application/json"
+      parameters:
+      - in: "body"
+        name: "user"
+        description: "New User object"
+        required: true
+        schema:
+          $ref: "#/definitions/NewUser"
+      responses:
+        200:
+          description: OK
+  /login:
+    post:
+      summary: "Login"
+      description: "Login"
+      produces:
+      - "application/json"
+      parameters:
+      - name: "email"
+        in: "query"
+        required: true
+        type: "string"
+      - name: "password"
+        in: "query"
+        required: true
+        type: "string"
+      responses:
+        200:
+          description: OK
+          schema:
+            $ref: "#/definitions/User"
+  /stock:
+    get:
+      summary: "Get all stocks"
+      description: "Get all stocks"
+      responses:
+        200:
+          description: OK
+          schema:
+            type: "array"
+            items:
+              $ref: "#/definitions/Stock"
+definitions:
+  User:
+    type: "object"
+    properties:
+      id:
+        type: "integer"
+      name:
+        type: "string"
+      email:
+        type: "string"
+    required: 
+      - "id"
+      - "name"
+      - "email"
+  NewUser:
+    type: "object"
+    properties:
+      name:
+        type: "string"
+      email:
+        type: "string"
+      password:
+        type: "string"
+    required: 
+      - "id"
+      - "name"
+      - "email"
+  Stock:
+    type: "object"
+    properties:
+      id:
+        type: "integer"
+      name:
+        type: "string"
+      code:
+        type: "string"
+    required: 
+      - "id"
+      - "name"
+      - "code"
+    
+    
+  
