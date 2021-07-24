@@ -35,7 +35,7 @@ jobs:
       env:
         ECR_REGISTRY: ${{ steps.login-ecr.outputs.registry }}
         ECR_REPOSITORY: pg-ecr-repo
-        IMAGE_TAG: ${{ github.sha }}
+        IMAGE_TAG: stock-browser-${{ github.sha }}
       run: |
         docker build -f backend/stock-browser/Dockerfile -t $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG backend/stock-browser/
         docker push $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG
