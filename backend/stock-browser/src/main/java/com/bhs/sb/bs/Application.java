@@ -8,6 +8,11 @@ import org.springframework.context.annotation.ComponentScan;
 
 import springfox.documentation.swagger2.annotations.EnableSwagger2;
 
+/**
+ * Entry Class
+ * @author CSK1KOR
+ *
+ */
 @SpringBootApplication
 @EnableSwagger2
 @ComponentScan(basePackages = { "com.bhs.sb.bs", "com.bhs.sb.bs.api", "com.bhs.sb.bs.controller","com.bhs.p20.dc.model", "com.bhs.sb.bs.config" })
