@@ -1,9 +1,7 @@
 name: Deploy Backend Image
 
-on:
-  push:
-    branches: [ master ]
-    paths: [backend/**]
+on: 
+  workflow_dispatch:
     
 jobs:
   build:
@@ -37,7 +35,7 @@ jobs:
         ECR_REPOSITORY: pg-ecr-repo
         IMAGE_TAG: ${{ github.sha }}
       run: |
-        docker build -f backend/stock-browser/Dockerfile -t $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG .
+        docker build -f backend/stock-browser/Dockerfile -t $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG backend/stock-browser/
         docker push $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG
 
 
